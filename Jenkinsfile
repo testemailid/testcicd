@@ -15,7 +15,7 @@ pipeline {
                     }
             }
         stage('Build') {
-            stage{
+            steps{
                 echo 'Running Maven clean and compile...'
                 sh 'mvn clean compile'
             }
