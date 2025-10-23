@@ -21,14 +21,12 @@ pipeline {
             }
         }
         stage('Run Application') {
-            // write your logic here
             steps{
                 echo 'run the test case'
                 sh 'mvn test'
             }
         }
         stage('Test') {
-            // write your logic here
             steps{
                 echo 'report'
             }
