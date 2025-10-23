@@ -29,6 +29,9 @@ pipeline {
         }
         stage('Test') {
             // write your logic here
+            steps{
+                echo 'report'
+            }
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
