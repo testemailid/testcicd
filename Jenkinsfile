@@ -17,13 +17,13 @@ pipeline {
         stage('Build') {
             steps{
                 echo 'Running Maven clean and compile...'
-                sh 'mvn clean install -DskipTests'
+                bat 'mvn clean install -DskipTests'
             }
         }
         stage('Run unit test') {
             steps{
                 echo 'run the test case'
-                sh 'mvn test'
+                bat 'mvn test'
             }
             post {
                 always {
