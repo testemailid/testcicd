@@ -11,7 +11,7 @@ pipeline {
             steps {
             echo 'checking out source code from Github...'
                 git branch: 'main',
-                    url: https://github.com/testemailid/testcicd.git
+                    url: 'https://github.com/testemailid/testcicd.git'
                     }
             }
         stage('Build') {
