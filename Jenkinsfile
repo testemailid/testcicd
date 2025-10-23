@@ -17,24 +17,28 @@ pipeline {
         stage('Build') {
             steps{
                 echo 'Running Maven clean and compile...'
-                sh 'mvn clean compile'
+                sh 'mvn clean install -DskipTests'
             }
         }
-        stage('Run Application') {
+        stage('Run unit test') {
             steps{
                 echo 'run the test case'
                 sh 'mvn test'
-            }
-        }
-        stage('Test') {
-            steps{
-                echo 'report'
             }
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
+            }         
+        }
+ }
+        post {
+             success {
+                 echo 'Build succeeded!'
+             }
+            failure {
+               echo 'Build failed. check console' 
             }
         }
     }
-}
+
